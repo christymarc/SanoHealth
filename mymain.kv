@@ -1,0 +1,903 @@
+#:kivy 1.9.0
+WindowManager:
+    Welcome:
+    About:
+    Create:
+    Login:
+    Menu:
+    Evaluation:
+    PhysicalGame:
+    Cardio:
+    HIIT:
+    Core:
+    Strength:
+    Sport:
+    Yoga:
+    Dance:
+    PhysicalEval:
+    GrateLog:
+    MentalGame:
+    Food:
+    Alert:
+
+<Welcome>
+    name: "welcome"
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        Label:
+            text: "Welcome to SanoHealth!!!!!"
+        Label:
+            text: "Please make an account or if you already have one sign in :)"
+        Button:
+            text: " Create an account"
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "create"
+                root.manager.transition.direction = "left"
+        Button:
+            text: " Log in" 
+            background_color: 0,.8,.8, 1
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "left"
+        Button:
+            text: " Log in with Google" 
+            background_color: 1,0,0, 1
+        Button:
+            text: " Log in with Facebook" 
+            background_color: 0,0,1, 1
+        Button:
+            text: " About SanoHealth" 
+            background_color: .69,.61,.85, 1
+            on_release:
+                app.root.current = "about"
+                root.manager.transition.direction = "left"
+
+<About>
+    name: "about"
+    GridLayout:
+        cols: 1
+        Label:
+            text: "         SanoHealth is a health and wellness app that utilizes features\n such as location-based contact-tracing, SMS alerts, wellness evaluations, and health activities\n in order to help users keep track of their health, fitness, and consumption\n during these unpresedented times."
+        Label:
+            text: "         The SanoHealth app was created by Christiana Marchese and Rachel Homan\nfor the A2CN Hack-In-Place Hackathon, and it was inspired by a previous contact-tracing app \n created by Christiana, Rachel, and their friend Saatvik Kher: HenHealth."
+        Label:
+            text: "         The intention of this app is to make it easy for people to focus on\n health and wellness during these times of uncertainty and shelter-in-place orders\n we at SanoHealth hope that are app enables and empowers users to take back control over their life\n and everyday habits."
+        Button:
+            text: "Back to Welcome Screen" 
+            background_color: 0,.8,.8, 1
+            on_release:
+                app.root.current = "welcome"
+                root.manager.transition.direction = "right"
+            
+<Create>
+    name: "create"
+    firstname: firstname
+    lastname: lastname
+    phone: phone
+    username: username
+    password: password
+    passwordCheck: passwordCheck
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Firstname: "
+            TextInput:
+                id: firstname
+                multiline:False
+            Label:
+                text: "Lastname: "
+            TextInput:
+                id: lastname
+                multiline:False
+            Label:
+                text: "Phone Number: "
+            TextInput:
+                id: phone
+                multiline:False
+            Label:
+                text: "Username: "
+            TextInput:
+                id: username
+                multiline:False
+            Label:
+                text: "Password: "
+            TextInput:
+                id: password
+                multiline:False
+            Label:
+                text: "Confirm Password: "
+            TextInput:
+                id: passwordCheck
+                multiline:False
+        
+        Button:
+            text: "Already have an account? Click here."
+            background_color: 0,.8,.8, 1
+            size_hint: .1,.3
+            on_release: app.root.current = "login"
+
+        Button:
+            text: "Submit"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_press: root.submit()
+            on_release: app.root.current = "menu"
+
+<Login>
+    name: "login"
+    username: username
+    password: password
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+            Label:
+                text: "Username: "
+            TextInput:
+                id: username
+                multiline:False
+            Label:
+                text: "Password: "
+            TextInput:
+                id: password
+                multiline:False
+        
+        Button:
+            text: "Don't have an account yet? Click here."
+            background_color: 0,.8,.8, 1
+            size_hint: .1,.3
+            on_release: app.root.current = "create"
+
+        Button:
+            text: "Submit"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: app.root.current = "menu"
+
+<Menu>
+    name: "menu"
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        Button:
+            text: "Wellness Evaluation"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: 
+                app.root.current = "evaluation"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Fitness"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Physical Evaluation"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: 
+                app.root.current = "Physical Wellness"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Mindfulness"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: 
+                app.root.current = "Mindfulness"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Food"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: 
+                app.root.current = "Farmers Markets in your area"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Alert Friends of COVID Infection"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: 
+                app.root.current = "alert"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Logout"
+            background_color: 0,.8,.8, 1
+            size_hint: .2,.4
+            on_release: 
+                app.root.current = "welcome"
+                root.manager.transition.direction = "right"
+        
+
+
+<Evaluation>
+    name: "evaluation"
+	GridLayout:
+		cols: 3
+        size: root.width, root.height
+        Label:
+            text: 'Do you have a fever?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color:.69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have a dry cough?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Are you experiencing fatigue?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Are you coughing up thick phlegm from the lungs?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have shortness of breath?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have bone or joint pain?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have a sore throat?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have a headache?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color:.69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have chills?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Are you experiencing nausea or vomiting?'
+            font_size: 11
+		Button:
+			text: 'Yes'
+            on_release: root.yes()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 15
+            size: 100, 50
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+        Label:
+            
+        Button: 
+            text: "Submit"
+            on_release: root.submit()
+            background_color: 0,.8,.8, 1
+            font_size: 15
+            size: 100, 50
+
+
+<PhysicalGame>
+    name: "fitness"
+	GridLayout:
+		cols: 3
+        size: root.width, root.height
+        Label:
+            text: "Let's Get Movin'! \n What do you feel like doin'?"
+            font_size: 15
+        Button:
+			text: 'Cardio'
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "cardio"
+                root.manager.transition.direction = "left"
+        Button:
+			text: 'HIIT'
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "HIIT"
+                root.manager.transition.direction = "left"
+        Button:
+			text: 'Core'
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "core"
+                root.manager.transition.direction = "left"
+        Button:
+			text: 'Strength'
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "strength"
+                root.manager.transition.direction = "left"
+        Button:
+			text: 'Sport'
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "sport"
+                root.manager.transition.direction = "left"
+        Button:
+			text: 'Yoga'
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "yoga"
+                root.manager.transition.direction = "left"
+        Button:
+			text: 'Dance'
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            on_release: 
+                app.root.current = "dance"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Back to Menu"
+            font_size: 25
+            background_color: 0,.8,.8, 1
+            size: 100, 50
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<Cardio>
+    name: "cardio"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label:
+            text: "                                                        Time to do some CARDIO!"
+            font_size: 30
+        Label:
+            text: ""
+        Label:
+            text: "Don't forget to start your workout on your\n Apple Watch® or Fitbit®"
+            font_size: 15
+        AsyncImage:
+            source: "https://i.pinimg.com/originals/2d/e7/4a/2de74a4460516b0f83248104926c5cbe.jpg"
+        Button:
+            text: "Back to Fitness" 
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+            
+
+<HIIT>
+    name: "HIIT"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label: 
+            text: "                                                          It's HIIT (High Intensity Interval Training) time!"
+            font_size: 25
+        Label: 
+            text: ""
+        Label: 
+            text: "So bring the energy and let's do this \n Don't forget to start your workout \non your Apple Watch® or Fitbit®"
+            font_size: 15
+        AsyncImage:
+            source: "https://darebee.com/images/workouts/super-hiit-workout.jpg"
+        Button:
+            text: "Back to Fitness" 
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<Core>
+    name: "core"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label: 
+            text: "                                                        It's time to get those rock hard ABS"
+            font_size: 25
+        Label:
+            text: ""
+        Label:
+            text: "Bring the strength and push through the pain \nDon't forget to start your workout \non your Apple Watch® or Fitbit®"
+            font_size: 15
+        AsyncImage:
+            source: "https://i.pinimg.com/originals/21/1c/79/211c796d6fa986134cf278ac6296785c.jpg" 
+        Button:
+            text: "Back to Fitness" 
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<Strength>
+    name: "strength"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label: 
+            text: "                                                    It's time to build your STRENGTH"
+            font_size: 25
+        Label:
+            text: ""
+        Label:
+            text: "Strength is good for your overall health \nand wellness. Don't forget to start your workout \non your Apple Watch® or Fitbit®"
+            font_size: 15
+        AsyncImage:
+            source: "https://darebee.com/images/workouts/superhero-strength-workout.jpg"
+        Button:
+            text: "Back to Fitness" 
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<Sport>
+    name: "sport"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label: 
+            text: "                                                    Let's get out and play some SPORTS"
+            font_size: 30
+        Label:
+            text: ""
+        Label: 
+            text: "Here are some of our favorites:"
+            font_size: 15
+        Label:
+            text: "Tennis, Waterpolo, Swimming, Basketball, \nVolleyball, & Ice Skating"
+            font_size: 15
+        Label:
+            text: "Don't forget to start your workout \non your Apple Watch® or Fitbit®"
+        Button:
+            text: "Click here to go find facilities near you"
+            background_color: .69, .61,.85
+            font_size: 20
+            on_release: root.sportplace()
+        Button:
+            text: "Back to Fitness" 
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<Yoga>
+    name: "yoga"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label: 
+            text: "                                                   Let's do some YOGA!"
+            font_size: 30
+        Label:
+            text:""
+        Label: 
+            text: "It improves your balance and eases your mind \nDon't forget to start your workout \non your Apple Watch® or Fitbit®"
+            font_size: 15
+        AsyncImage:
+            source: "https://darebee.com/images/workouts/inner-warrior-workout.jpg"
+        Button:
+            text: "Back to Fitness" 
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<Dance>
+    name: "dance"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label: 
+            text: "                                                  Let's DANCE!"
+            font_size: 30
+        Label: 
+            text: ""
+        Label:
+            text: "We recommend Hip Hop, Latin Dance, Ballet, \n Jazz, and Contemporary. Don't forget to \nstart your workout on your Apple Watch® or Fitbit®"
+            font_size: 15
+        Button:
+            text: "Click here to open Spotify"
+            font_size: 20
+            on_release: root.spotify()
+            background_color: .69, .61,.85
+        Button:
+            text: "Back to Fitness" 
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "fitness"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<PhysicalEval>
+    name: "Physical Wellness"
+    grateful: grateful
+	GridLayout:
+		cols: 3
+        size: root.width, root.height
+        Label:
+            text: 'Do you have any aches?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitaches()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have back pain?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitback()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you feel fatigued?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitfat()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Are you experiencing any soreness?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitsore()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Have you not stood every hour?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitstood()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Have you not been moving each day?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitmove()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Do you have any symptoms of depression?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitdep()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Has you overall energy dropped?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitenergy()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            text: 'Are you spending more than 2 hours\nstraight on a screen?'
+            font_size: 11
+        Button:
+			text: 'Yes'
+            on_release: root.submitscreen()
+            background_color: .69, .61,.85
+		Button:
+			text: 'No'
+            background_color: 0, 0, 1
+        Label:
+            font_size: 11
+            text: 'Final Check-in: State 3 things you are grateful for'
+        TextInput:
+            id: grateful
+            multiline: False
+        
+        Label:
+
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            size: 100, 50
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+                
+        Button:
+            text: "See Past Gratefulness Logs"
+            background_color: .69, .61,.85
+            font_size: 20
+            size: 100, 50
+            on_release: 
+                app.root.current = "grateLog"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Submit"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            size: 100, 50
+            on_press: root.submit_all()
+
+# just for demo, must update 
+<GrateLog>
+    name: "grateLog"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label: 
+            text: "Date"
+        Label:
+            text: "Past Gratefulness Inputs"
+        Label:
+            text: "02/07/2021"
+        Label:
+            text: "friends, family, food"
+        Label:
+        Label:
+        Label:
+        Label:
+        Label:
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 15
+            size_hint: (None, None)
+            pos: (550, 0)
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+        
+            
+<MentalGame>
+    name: "Mindfulness"
+	GridLayout:
+		cols: 2
+        size: root.width, root.height
+        Label:
+            text: "Inhale "
+            font_size: 40
+        Label:
+            text: "Exhale"
+            font_size: 40
+        Button:
+			text: 'Please click to start the mindfulness audio'
+            on_release: root.play_sound_rainforest() 
+            background_color: .69, .61,.85
+        Button:
+			text: 'Or please use this button to open your Calm App'
+            on_release: root.open_calm() 
+            background_color: .69, .61,.85
+        Label:
+            text: "Close your eyes"
+            font_size: 15
+        Label:
+            text: "Listen to the calming music for the length of the audio file"
+            font_size: 15
+        AsyncImage:
+            source: "https://res.cloudinary.com/calm-com/image/upload/v1582139698/jasper-lake.jpg"
+        Button:
+            text: "Back to Menu"
+            background_color: 0,.8,.8, 1
+            font_size: 25
+            size: 100, 50
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+<Food>
+    name: "Farmers Markets in your area"
+    GridLayout:
+        cols: 2
+        size: root.width, root.height
+        Label:
+            text: "                                                        FOOD"
+            font_size: 30
+        Label:
+            text: ""
+        Label:
+            text: "Eating is not only important to your physical health, "
+            font_size: 15
+        Label:
+            text: "but you mental health as well!"
+            font_size: 15
+        Label:
+            text: "Please consider supporting local businesses"
+            font_size: 18
+        AsyncImage:
+            source: "https://img.hoodline.com/uploads/story/image/21765/Image_23_Downing_Farmers.jpg"
+        Button:
+            text: "Log Calories or Meals"
+            background_color: .69, .61,.85
+            font_size: 25
+        Button:
+            text: "Back to Menu"
+            background_color:  0,.8,.8, 1
+            font_size: 25
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+
+<Alert>
+    name: "alert"
+    username: username
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        
+        Label:
+            text: "If you have tested positive for COVID-19, insert your username\nand press the red button to alert all the users you have\nbeen in contact with in the past 2 weeks."
+        
+        GridLayout:
+            cols:2
+            Label:
+                text: "Username: "
+                size_hint: .6, .1
+                pos_hint: {"x": .2, "top": 1}
+            TextInput:
+                id: username
+                multiline:False
+                size_hint: .6, .2
+                pos_hint: {"x": .2, "top": 1}
+
+        Button:
+            text: "Alert Friends"
+            background_color: 1,0,0
+            size_hint: .1,.3
+            on_release: root.redbtn()
+
+        Button:
+            text: "Back to Menu"
+            background_color:  0,.8,.8, 1
+            size_hint: .1,.3
+            on_release: 
+                app.root.current = "menu"
+                root.manager.transition.direction = "right"
+        AsyncImage:
+            source: "https://magazine.pomona.edu/wp-content/images/blogs/pomoniana-default.jpg"
