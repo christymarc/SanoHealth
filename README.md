@@ -1,0 +1,3 @@
+  SanoHealth is a health and wellness app that utilizes features such as location-based contact-tracing, SMS alerts, wellness evaluations, and health activities in order to help users keep track of their health, fitness, and consumption during these times of mandatory lockdown.
+  The SanoHealth app was created by Christiana Marchese and Rachel Homan for the A2CN Hack-In-Place Hackathon, and it was inspired by a previous contact-tracing app created by Christiana, Rachel, and their friend Saatvik Kher: HenHealth.
+  The intention of this app is to make it easy for people to focus on health and wellness during these times of uncertainty and shelter-in-place orders. we hope that are app enables and empowers users to take back control over their life and everyday habits.
